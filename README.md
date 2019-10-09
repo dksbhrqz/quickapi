@@ -4,10 +4,10 @@ Quick API is a RESTful API project for Backend Dev job application.
 
 ## Installation
 
-Download [Python](https://nodejs.org/es/download/) and use the Node Package Manager to install dependencies.
+Download [Python](https://www.python.org/downloads/) and use the Package Manager to install Django.
 
 ```bash
-npm install
+pip install Django
 ```
 
 ## Usage
@@ -28,8 +28,8 @@ Start the proyect by running:
 python manage.py runserver
 ```
 
-To start the app, run:
+Open the following URL in your favorite browser:
 
 ```bash
-npm start
+http://localhost:8000
 ```
