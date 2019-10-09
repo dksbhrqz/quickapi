@@ -4,6 +4,9 @@ from rest_framework import viewsets
 from .serializers import ClientSerializer, BillSerializer, ProductSerializer, BillProductSerializer
 from .models import Client, Bill, Product, BillProduct
 
+import csv
+from django.http import HttpResponse
+
 # Create your views here.
 
 class ClientViewSet(viewsets.ModelViewSet):
@@ -21,3 +24,15 @@ class ProductViewSet(viewsets.ModelViewSet):
 class BillProductViewSet(viewsets.ModelViewSet):
     queryset = BillProduct.objects.all()
     serializer_class = BillProductSerializer
+
+def export_clients_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="csv_simple_write.csv"'
+    client_list = []
+    client_list = Client.objects.all().order_by('last_name')
+    writer = csv.writer(response)
+    writer.writerow(['first_name', 'last_name', 'email'])
+    for k in client_list.iterator():
+        writer.writerow([k.first_name, k.last_name, k.email])
+
+    return response
