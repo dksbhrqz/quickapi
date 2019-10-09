@@ -34,7 +34,7 @@ Open the following URL in your favorite browser:
 http://localhost:8000
 ```
 
-Additionally, you can export clients list at the following endpoint:
+Additionally, you can export clients list in CSV format at the following endpoint:
 
 ```bash
 http://localhost:8000/export-clients
