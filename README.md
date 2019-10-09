@@ -7,7 +7,7 @@ Quick API is a RESTful API project for Backend Dev job application.
 Download [Python](https://www.python.org/downloads/) and use the Package Manager to install Django.
 
 ```bash
-pip install Django
+pip install djangorestframework
 ```
 
 ## Usage
