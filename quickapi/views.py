@@ -29,10 +29,10 @@ def export_clients_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="csv_simple_write.csv"'
     client_list = []
-    client_list = Client.objects.all().order_by('last_name')
+    client_list = Client.objects.raw('SELECT * FROM clients')
     writer = csv.writer(response)
-    writer.writerow(['first_name', 'last_name', 'email'])
+    writer.writerow(['ID', 'first_name', 'last_name', 'email'])
     for k in client_list.iterator():
-        writer.writerow([k.first_name, k.last_name, k.email])
+        writer.writerow([k.pk, k.first_name, k.last_name, k.email])
 
     return response
